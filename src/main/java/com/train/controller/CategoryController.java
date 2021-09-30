@@ -22,7 +22,11 @@ public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
-
+    @RequestMapping("/welcome")
+    public String welcome() {
+    	return "new feature is working";
+    }
+    
     //add category
     @PostMapping("/")
     public ResponseEntity<Category> addCategory(@RequestBody Category category) {
