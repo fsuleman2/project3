@@ -30,6 +30,10 @@ public class CategoryController {
     public String welcome1() {
     	return "new feature is working1";
     }
+    @RequestMapping("/welcome3")
+    public String welcome3() {
+    	return "new feature is working3";
+    }
     //add category
     @PostMapping("/")
     public ResponseEntity<Category> addCategory(@RequestBody Category category) {
