@@ -26,7 +26,10 @@ public class CategoryController {
     public String welcome() {
     	return "new feature is working";
     }
-    
+    @RequestMapping("/welcome1")
+    public String welcome1() {
+    	return "new feature is working1";
+    }
     //add category
     @PostMapping("/")
     public ResponseEntity<Category> addCategory(@RequestBody Category category) {
