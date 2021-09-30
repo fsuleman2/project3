@@ -9,13 +9,13 @@ pipeline {
         }
         stage('build') { 
             steps {
-                sh "mvn package"
+                bat "mvn package"
             }
         }
         stage('Build Docker image'){
             steps {
               
-                sh 'docker build -t  fsuleman2/revature-railways-backend .'
+                bat 'docker build -t  fsuleman2/revature-railways-backend .'
             }
         }
         stage('Docker Login'){
@@ -29,13 +29,13 @@ pipeline {
         }
         stage('Docker Push'){
             steps {
-                sh 'docker push fsuleman2/revature-railways-backend'
+                bat 'docker push fsuleman2/revature-railways-backend'
             }
         }
         stage('Docker deploy'){
             steps {
-              sh 'docker container rm -f revature-railways-backend'
-                sh 'docker run --name revature-railways-backend -itd -p  9090:9848 fsuleman2/revature-railways-backend'
+              bat 'docker container rm -f revature-railways-backend'
+                bat 'docker run --name revature-railways-backend -itd -p  9090:9848 fsuleman2/revature-railways-backend'
             }
         }        
         stage('Archving') { 
